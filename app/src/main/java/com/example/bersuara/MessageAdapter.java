@@ -23,29 +23,25 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the message at this position
         Message message = getItem(position);
 
-        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_item_message, parent, false);
         }
 
-        // Find the views
         TextView textMessage = convertView.findViewById(R.id.textMessage);
         ImageView imageMessage = convertView.findViewById(R.id.imageMessage);
 
-        // Populate the data
         if (message.hasImage()) {
             // If the message contains an image
-            textMessage.setVisibility(View.GONE); // Hide text
-            imageMessage.setVisibility(View.VISIBLE); // Show image
-            imageMessage.setImageBitmap(message.getImage()); // Set the image
+            textMessage.setVisibility(View.GONE); 
+            imageMessage.setVisibility(View.VISIBLE); 
+            imageMessage.setImageBitmap(message.getImage()); 
         } else {
             // If the message contains text
-            textMessage.setVisibility(View.VISIBLE); // Show text
-            imageMessage.setVisibility(View.GONE); // Hide image
-            textMessage.setText(message.getText()); // Set the text
+            textMessage.setVisibility(View.VISIBLE); 
+            imageMessage.setVisibility(View.GONE); 
+            textMessage.setText(message.getText()); 
         }
 
         return convertView;
