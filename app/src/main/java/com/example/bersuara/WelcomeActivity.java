@@ -29,12 +29,11 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
 
-        // Initialize UI components
+        // Initialize components
         textWelcomeTop = findViewById(R.id.textWelcomeTop);
         textWelcomeBottom = findViewById(R.id.textWelcomeBottom);
         startButton = findViewById(R.id.start_button);
 
-        // Hide initial views
         textWelcomeTop.setVisibility(View.INVISIBLE);
         textWelcomeBottom.setVisibility(View.INVISIBLE);
         startButton.setVisibility(View.GONE);
@@ -50,7 +49,6 @@ public class WelcomeActivity extends AppCompatActivity {
         currentAcceleration = SensorManager.GRAVITY_EARTH;
         lastAcceleration = SensorManager.GRAVITY_EARTH;
 
-        // Set button click listener
         startButton.setOnClickListener(v -> {
             Intent intent = new Intent(WelcomeActivity.this, main.class);
             startActivity(intent);
@@ -84,7 +82,6 @@ public class WelcomeActivity extends AppCompatActivity {
         textWelcomeTop.setVisibility(View.VISIBLE);
         textWelcomeBottom.setVisibility(View.VISIBLE);
 
-        // Load animations
         Animation animTop = AnimationUtils.loadAnimation(this, R.anim.move_top_to_center);
         Animation animBottom = AnimationUtils.loadAnimation(this, R.anim.move_bottom_to_center);
 
@@ -100,7 +97,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 textWelcomeBottom.setAlpha(0.5f); // Reflection effect
-                startButton.setVisibility(View.VISIBLE); // Show button in center
+                startButton.setVisibility(View.VISIBLE); 
             }
 
             @Override
