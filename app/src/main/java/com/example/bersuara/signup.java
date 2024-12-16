@@ -9,14 +9,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class signup extends AppCompatActivity {
 
     private EditText emailEditText, studentIdEditText, passwordEditText, confirmPasswordEditText;
     private Button registerButton;
-    private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firestore;
 
     @Override
@@ -31,8 +29,7 @@ public class signup extends AppCompatActivity {
         confirmPasswordEditText = findViewById(R.id.editTextTextPassword2);
         registerButton = findViewById(R.id.button);
 
-        // Inisialisasi Firebase Auth dan Firestore
-        firebaseAuth = FirebaseAuth.getInstance();
+        // Inisialisasi Firestore
         firestore = FirebaseFirestore.getInstance();
 
         // Tombol registrasi
@@ -66,30 +63,17 @@ public class signup extends AppCompatActivity {
             return;
         }
 
-        // Mendaftarkan pengguna ke Firebase Authentication
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Dapatkan UID pengguna yang baru saja terdaftar
-                        String userId = firebaseAuth.getCurrentUser().getUid();
-
-                        // Buat objek data pengguna
-                        User user = new User(email, studentId);
-
-                        // Simpan data pengguna ke Firestore
-                        firestore.collection("users").document(userId)
-                                .set(user)
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(signup.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), main.class));
-                                    finish();
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(signup.this, "Failed to save data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                });
-                    } else {
-                        Toast.makeText(signup.this, "Registration Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+        // Simpan data pengguna ke Firestore
+        User user = new User(email, studentId, password); // Tambahkan password jika ingin disimpan
+        firestore.collection("users")
+                .add(user)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(signup.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), main.class));
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(signup.this, "Failed to save data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 }
