@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_8">
+
+    <LinearLayout
+        android:id="@+id/formLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo2"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="310dp"
+            android:layout_height="48dp"
+            android:hint="Student email"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/input"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="310dp"
+            android:layout_height="48dp"
+            android:hint="Student ID"
+            android:inputType="number"
+            android:background="@drawable/input"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="310dp"
+            android:layout_height="48dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/input"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword2"
+            android:layout_width="310dp"
+            android:layout_height="48dp"
+            android:hint="Confirm password"
+            android:inputType="textPassword"
+            android:background="@drawable/input"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tombol Register -->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#BAEC9E"
+            android:text="Register"
+            android:textColor="#8C867C"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="4dp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#BAEC9E"
+            android:text="Log in"
+            android:textColor="#8C867C" />
+    </LinearLayout>
+</RelativeLayout>

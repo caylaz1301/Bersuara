@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "142834443734",
+    "firebase_url": "https://bersuara-9ef12-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bersuara-9ef12",
+    "storage_bucket": "bersuara-9ef12.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142834443734:android:55ac512ec63d739e537077",
+        "android_client_info": {
+          "package_name": "com.company.bersuara"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm8uEZ6wogYROvDJ550yJx0F3bCNjsuXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142834443734:android:345409c0ae3cb7f0537077",
+        "android_client_info": {
+          "package_name": "com.example.bersuara"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm8uEZ6wogYROvDJ550yJx0F3bCNjsuXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

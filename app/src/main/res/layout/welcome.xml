@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_8">
+
+    <!-- Teks Welcome Atas -->
+    <TextView
+        android:id="@+id/textWelcomeTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="60sp"
+        android:textColor="#474341"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:visibility="invisible" />
+
+    <!-- Teks Welcome Refleksi (Bawah) -->
+    <TextView
+        android:id="@+id/textWelcomeBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="60sp"
+        android:textColor="#474341"
+        android:textStyle="bold"
+        android:layout_below="@id/textWelcomeTop"
+        android:layout_centerHorizontal="true"
+        android:scaleY="-1"
+        android:alpha="0.5"
+        android:visibility="invisible" />
+
+    <!-- Tombol Get Started -->
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Started"
+        android:backgroundTint="#0D0D0D"
+        android:textColor="#FAF6F6"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:padding="16dp" />
+</RelativeLayout>

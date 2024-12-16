@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/img_8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/logo2" />
+
+        <ImageView
+            android:layout_width="206dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/img_2"/>
+
+        <TextView
+            android:id="@+id/account_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="16dp"
+            android:text="Welcome to the App!"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="141dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/account_text"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#BAEC9E"
+            android:padding="10dp"
+            android:text="Let's get chatting!"
+            android:textColor="#8C867C" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="119dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+
+</RelativeLayout>
