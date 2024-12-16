@@ -4,7 +4,6 @@ public class User {
     private String email;
     private String studentId;
 
-    // Constructor kosong diperlukan untuk Firestore
     public User() {
     }
 
@@ -13,7 +12,6 @@ public class User {
         this.studentId = studentId;
     }
 
-    // Getter dan Setter
     public String getEmail() {
         return email;
     }
