@@ -39,13 +39,10 @@ public class main extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
 
-        // Cek jika Remember Me aktif
         checkRememberMe();
 
-        // Tombol login
         loginButton.setOnClickListener(v -> handleLogin());
 
-        // Tombol register
         registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(main.this, signup.class);
             startActivity(intent);
@@ -76,12 +73,11 @@ public class main extends AppCompatActivity {
 
         // Query ke Firestore untuk mengecek email dan password
         firestore.collection("users")
-                .whereEqualTo("email", email) // Cari data dengan email yang cocok
-                .whereEqualTo("password", password) // Cocokkan password
+                .whereEqualTo("email", email) 
+                .whereEqualTo("password", password) 
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        // Jika data ditemukan, login berhasil
                         if (rememberMeCheckbox.isChecked()) {
                             sharedPreferences.edit().putString("email", email).apply();
                         } else {
@@ -93,7 +89,6 @@ public class main extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-                        // Jika data tidak ditemukan atau password salah
                         Toast.makeText(main.this, "Login Failed: Invalid email or password", Toast.LENGTH_SHORT).show();
                     }
                 })
