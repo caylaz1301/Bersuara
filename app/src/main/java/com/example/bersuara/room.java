@@ -35,7 +35,7 @@ public class room extends AppCompatActivity {
     String anonymousUsername;  // Variable to hold the anonymous username
 
     // Array of banned words
-    String[] bannedWords = {"anjing", "babi", "bangsat", "pepek", "tai", "ngentot", "memek", "kontol", "fuck", "bitch", "ngewe", "goblog", "goblok", "bajingan", "pepek", "lonte", "asu", "edan" };
+    String[] bannedWords = {"anjing", "babi", "bangsat", "asu", "edan" };
 
     // Notification Manager
     private NotificationManager notificationManager;
