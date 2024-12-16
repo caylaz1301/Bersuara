@@ -32,12 +32,11 @@ public class room extends AppCompatActivity {
     ArrayList<Message> messages;
     MessageAdapter messageAdapter;
     int REQUEST_CODE = 99;
-    String anonymousUsername;  // Variable to hold the anonymous username
+    String anonymousUsername;  
 
-    // Array of banned words
     String[] bannedWords = {"anjing", "babi", "bangsat", "asu", "edan" };
 
-    // Notification Manager
+    // Notification 
     private NotificationManager notificationManager;
     private static final String CHANNEL_ID = "banned_words_channel";
 
@@ -46,7 +45,7 @@ public class room extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
 
-        // Initialize UI elements
+        // Initialize elements
         editTextMessage = findViewById(R.id.editTextMessage);
         buttonSend = findViewById(R.id.buttonSend);
         buttonTakePhoto = findViewById(R.id.buttonTakePhoto);
@@ -54,12 +53,10 @@ public class room extends AppCompatActivity {
 
         anonymousUsername = getIntent().getStringExtra("anonymous_username");
 
-        // Initialize message list and adapter
         messages = new ArrayList<>();
         messageAdapter = new MessageAdapter(this, messages);
         listViewMessages.setAdapter(messageAdapter);
 
-        // Initialize Notification Manager
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         createNotificationChannel();
 
@@ -70,14 +67,13 @@ public class room extends AppCompatActivity {
                 String messageText = editTextMessage.getText().toString().trim();
                 if (!messageText.isEmpty()) {
                     if (containsBannedWords(messageText)) {
-                        // Show warning notification if message contains banned words
                         showBannedWordsNotification();
                         Toast.makeText(room.this, "Pesan Anda mengandung kata-kata tidak pantas!", Toast.LENGTH_SHORT).show();
                     } else {
                         // Add the text message to the list, prepending the anonymous username
-                        messages.add(new Message(anonymousUsername + ": " + messageText, null));  // Text message without image
+                        messages.add(new Message(anonymousUsername + ": " + messageText, null));  
                         messageAdapter.notifyDataSetChanged();
-                        editTextMessage.setText(""); // Clear input field
+                        editTextMessage.setText(""); 
                     }
                 } else {
                     Toast.makeText(room.this, "Please enter a message", Toast.LENGTH_SHORT).show();
@@ -85,17 +81,13 @@ public class room extends AppCompatActivity {
             }
         });
 
-        // Take photo button click listener
         buttonTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Launch the camera
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
             }
         });
-
-        // Check for camera permission
         checkCameraPermission();
     }
 
@@ -104,12 +96,10 @@ public class room extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            // Get the captured image as a Bitmap
             Bitmap picTaken = (Bitmap) data.getExtras().get("data");
 
-            // Add the image message to the list
-            messages.add(new Message(null, picTaken));  // Image message without text
-            messageAdapter.notifyDataSetChanged();  // Notify the adapter to refresh the list
+            messages.add(new Message(null, picTaken)); 
+            messageAdapter.notifyDataSetChanged(); 
         } else {
             Toast.makeText(this, "Camera Canceled", Toast.LENGTH_SHORT).show();
         }
@@ -136,15 +126,14 @@ public class room extends AppCompatActivity {
     // Method to show notification for banned words
     private void showBannedWordsNotification() {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.logo2) // Replace with your app's icon
+                .setSmallIcon(R.drawable.logo2)
                 .setContentTitle("Peringatan!")
                 .setContentText("Pesan Anda mengandung kata-kata tidak pantas.")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setDefaults(Notification.DEFAULT_SOUND) // Default sound notification
+                .setDefaults(Notification.DEFAULT_SOUND) 
                 .setAutoCancel(true)
                 .build();
 
-        // Display the notification
         notificationManager.notify(1, notification);
     }
 
