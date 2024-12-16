@@ -42,7 +42,6 @@ public class signup extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
-        // Validasi input
         if (TextUtils.isEmpty(email) || !email.endsWith("@student.president.ac.id")) {
             emailEditText.setError("Please use your student email");
             return;
@@ -63,8 +62,8 @@ public class signup extends AppCompatActivity {
             return;
         }
 
-        // Simpan data pengguna ke Firestore
-        User user = new User(email, studentId, password); // Tambahkan password jika ingin disimpan
+        // Simpan data ke Firestore
+        User user = new User(email, studentId, password);
         firestore.collection("users")
                 .add(user)
                 .addOnSuccessListener(documentReference -> {
